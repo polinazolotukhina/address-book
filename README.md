@@ -3,12 +3,12 @@
 [![Dependency Status](https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square)](https://david-dm.org/coryhouse/react-slingshot)
 [![Coverage Status](https://img.shields.io/coveralls/coryhouse/react-slingshot/master.svg?style=flat-square)](https://coveralls.io/github/coryhouse/react-slingshot?branch=master)
 
-# Social login
+# address-book
 
 
-**Clone the project**. git clone https://github.com/polinazolotukhina/Social-login.git
+**Clone the project**. git clone https://github.com/polinazolotukhina/address-book.git
 
-**Go to the folder **. cd Social-login
+**Go to the folder **. cd address-book
 
 **Install **. npm install
 
