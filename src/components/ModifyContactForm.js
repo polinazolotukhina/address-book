@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { browserHistory } from 'react-router';
 
 const capitalize = value => value.charAt(0).toUpperCase() + value.substring(1);
 
@@ -24,6 +25,7 @@ let ModifyContactForm = props => {
                 <Field name="email" component="input" type="email"  />
               </div>
               <button type="submit">Submit</button>
+              <button onClick={()=>{browserHistory.push('/');}} >Cancel</button>
             </form>
         </div>
     );

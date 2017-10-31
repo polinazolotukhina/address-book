@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import { compose, bindActionCreators } from 'redux';
 import { firebaseConnect, dataToJS } from 'react-redux-firebase';
 import ContactItem from '../components/ContactItem';
+import _ from 'lodash';
 import ReactAutoHeaderList from 'react-auto-header-list';
 import * as actions from '../actions/actions';
 
@@ -21,7 +22,7 @@ class Home extends React.Component {
 
 	renderHeader(headerKey, key ) {
 		return (
-			<div key={key} style={{ backgroundColor: '#AED581', color: 'black', padding: '10px 30px', fontSize: '30px' }}>
+			<div key={key} style={{ backgroundColor: '#C5E1A5', color: 'black', padding: '10px 30px', fontSize: '30px' }}>
 				{headerKey.toUpperCase()}
 			</div>
 		);
@@ -40,6 +41,8 @@ class Home extends React.Component {
         contacts&&Object.keys(contacts).forEach(key => {
           contacts[key]['id'] = key;
           results.push(contacts[key]);
+          results =  _.sortBy(results, 'lastName');
+
         });
         return (
             <div>
@@ -50,7 +53,8 @@ class Home extends React.Component {
                 <ReactAutoHeaderList
 					items={results}
                     totalItemCount={results.length}
-					isFetching={false}
+					isFetching={true}
+                    onLoadMore={this.onLoadMoreClicked}
 					getSectionHeaderTitle={this.getSectionHeaderTitle}
 					renderItem={this.renderItem}
 					renderHeader={this.renderHeader}
