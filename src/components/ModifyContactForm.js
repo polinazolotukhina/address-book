@@ -1,27 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+
+const capitalize = value => value.charAt(0).toUpperCase() + value.substring(1);
+
 
 let ModifyContactForm = props => {
   const { handleSubmit } = props;
-  return (
-    <form onSubmit={ handleSubmit }>
-      <div>
-        <label htmlFor="lastName">Last Name</label>
-        <Field name="lastName" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="firstName">First Name</label>
-        <Field name="firstName" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <Field name="email" component="input" type="email" />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  )
-}
-
+    return (
+        <div>
+            <h2>Modify Contact</h2>
+            <hr/>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="firstName">First Name</label>
+                <Field name="firstName" component="input" type="text"  normalize={capitalize}  />
+              </div>
+              <div>
+                <label htmlFor="lastName">Last Name</label>
+                <Field name="lastName" component="input" type="text"  normalize={capitalize} />
+              </div>
+              <div>
+                <label htmlFor="email">Email</label>
+                <Field name="email" component="input" type="email"  />
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+        </div>
+    );
+};
 
 // Decorate with reduxForm(). It will read the initialValues prop provided by connect()
 ModifyContactForm = reduxForm({

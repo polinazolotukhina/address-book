@@ -22,14 +22,14 @@ class Remove extends React.Component {
            onClick={() => this.setState({open: false})}
          />,
          <FlatButton
-           label="Delete"
+           label="Remove Contact"
            secondary={true}
            onClick={() => firebase.remove('contacts/' + id)}
          />,
        ];
         return (
             <div className="remove" >
-                <RaisedButton default={true} label="Delete Post"  onClick={() => this.setState({open: true}) }/>
+                <RaisedButton default={true} label="Remove Contact"  onClick={() => this.setState({open: true}) }/>
                 <Dialog
                   actions={actions}
                   modal={false}

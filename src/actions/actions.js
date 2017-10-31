@@ -2,16 +2,15 @@ import * as types from '../constants/actionTypes';
 
 
 
-function Modify(objContact, id) {
+function modifycontact(objContact) {
     return {
         type: types.MODIFY_CONTACT,
-        contact: objContact,
-        id:id
+        contact: objContact
     };
 }
 
-export function ModifyContact(objContact, id) {
+export function modifycontactinfo(objContact) {
   return (dispatch) => {
-    dispatch(Modify(objContact,id));
+    dispatch(modifycontact(objContact));
   };
 }

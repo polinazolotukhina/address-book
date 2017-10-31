@@ -10,12 +10,12 @@ let AddContactForm = props => {
   return (
     <form onSubmit={ handleSubmit }>
       <div>
-        <label htmlFor="lastName">Last Name</label>
-        <Field name="lastName" component="input" type="text" normalize={capitalize}  />
-      </div>
-      <div>
         <label htmlFor="firstName">First Name</label>
         <Field name="firstName" component="input" type="text" normalize={capitalize} />
+      </div>
+      <div>
+        <label htmlFor="lastName">Last Name</label>
+        <Field name="lastName" component="input" type="text" normalize={capitalize}  />
       </div>
       <div>
         <label htmlFor="email">Email</label>

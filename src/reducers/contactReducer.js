@@ -8,12 +8,12 @@ import initialState from './initialState';
 // create a copy of the state passed and set new values on the copy.
 // Note that I'm using Object.assign to create a copy of current state
 // and update values on the copy.
-export default function postReducer(state = initialState.contact, action) {
+export default function contactReducer(state = initialState.contact, action) {
     switch (action.type) {
         case MODIFY_CONTACT:
                 return {
                   ...state,
-                  contact: [action.contact, action.id]
+                  contact: action.contact
                 };
         default:
             return state;

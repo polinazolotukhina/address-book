@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { getFirebase } from 'react-redux-firebase';
 import ModifyContactForm  from './ModifyContactForm';
 import PropTypes from 'prop-types';
@@ -11,26 +11,23 @@ import { browserHistory } from 'react-router';
 
  class ModifyContact extends React.Component {
     submit(values) {
-        console.log('values', values.id)
-      const firebase = getFirebase()
+      const firebase = getFirebase();
       firebase
       .update('contacts/'+ values.id, values)
       .then(() => {
-        browserHistory.push('/')
-      })
+        browserHistory.push('/');
+    });
     }
 
     render() {
         const { contact, initialValues } = this.props;
-        console.log("I am initialValues", initialValues)
         return (
             <div className="container">
                 <ModifyContactForm onSubmit={this.submit} contact={contact} initialValues={initialValues} />
             </div>
-      )
+      );
     }
 }
-
 
 ModifyContact.propTypes = {
     actions: PropTypes.object.isRequired,
@@ -42,8 +39,8 @@ function mapStateToProps(state) {
     const { contact } = state;
     return {
         contact,
-        initialValues: Object.assign({}, contact.contact[0], {id:contact.contact[1]} )
-
+        initialValues: contact.contact
+        // initialValues: Object.assign({}, contact.contact[0], {id:contact.contact[1]}
     };
 }
 
