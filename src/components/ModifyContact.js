@@ -1,13 +1,11 @@
 import React from 'react';
 import { getFirebase } from 'react-redux-firebase';
-import ModifyContactForm  from './ModifyContactForm';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators} from 'redux';
-import * as actions from '../actions/actions';
 import { browserHistory } from 'react-router';
-
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/actions';
+import ModifyContactForm from './ModifyContactForm';
 
  class ModifyContact extends React.Component {
     submit(values) {
@@ -23,7 +21,11 @@ import { browserHistory } from 'react-router';
         const { contact, initialValues } = this.props;
         return (
             <div className="container">
-                <ModifyContactForm onSubmit={this.submit} contact={contact} initialValues={initialValues} />
+                <ModifyContactForm
+                    onSubmit={this.submit}
+                    contact={contact}
+                    initialValues={initialValues}
+                />
             </div>
       );
     }
@@ -31,7 +33,7 @@ import { browserHistory } from 'react-router';
 
 ModifyContact.propTypes = {
     actions: PropTypes.object.isRequired,
-    contact:PropTypes.object.isRequired,
+    contact: PropTypes.object.isRequired,
 };
 
 

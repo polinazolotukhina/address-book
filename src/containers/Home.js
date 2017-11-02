@@ -5,24 +5,27 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { browserHistory } from 'react-router';
 import { compose, bindActionCreators } from 'redux';
 import { firebaseConnect, dataToJS } from 'react-redux-firebase';
-import ContactItem from '../components/ContactItem';
-import _ from 'lodash';
 import ReactAutoHeaderList from 'react-auto-header-list';
+import _ from 'lodash';
+import ContactItem from '../components/ContactItem';
 import * as actions from '../actions/actions';
 
 
 class Home extends React.Component {
-    constructor(props){
-     super(props);
-    }
-
     getSectionHeaderTitle(item) {
 		return item.lastName.charAt(0);
 	}
 
-	renderHeader(headerKey, key ) {
+	renderHeader(headerKey, key) {
 		return (
-			<div key={key} style={{ backgroundColor: '#C5E1A5', color: 'black', padding: '10px 30px', fontSize: '30px' }}>
+			<div
+                key={key}
+                style={{
+                    backgroundColor: '#C5E1A5',
+                    color: 'black',
+                    padding: '5px 30px',
+                    fontSize: '30px'
+            }}>
 				{headerKey.toUpperCase()}
 			</div>
 		);
@@ -41,24 +44,26 @@ class Home extends React.Component {
         contacts&&Object.keys(contacts).forEach(key => {
           contacts[key]['id'] = key;
           results.push(contacts[key]);
-          results =  _.sortBy(results, 'lastName');
-
+          results = _.sortBy(results, 'lastName');
         });
         return (
             <div>
-                <div style={{ textAlign: 'right', padding:'10px 0 0 0' }}>
-                    <RaisedButton label="Add New Contact" onClick={()=>{browserHistory.push('/addcontact');}} />
+                <div style={{ textAlign: 'right', padding: '10px 0 0 0' }}>
+                    <RaisedButton
+                        label="Add New Contact"
+                        onClick={() => { browserHistory.push('/addcontact'); }}
+                    />
                 </div>
                 <h1>Address Book</h1>
                 <ReactAutoHeaderList
 					items={results}
                     totalItemCount={results.length}
-					isFetching={true}
+					isFetching
                     onLoadMore={this.onLoadMoreClicked}
 					getSectionHeaderTitle={this.getSectionHeaderTitle}
 					renderItem={this.renderItem}
 					renderHeader={this.renderHeader}
-				/>
+                />
             </div>
         );
     }
@@ -76,7 +81,7 @@ function mapDispatchToProps(dispatch) {
 
 export default compose(
   firebaseConnect([
-    { path: 'contacts', queryParams: [ 'orderByValue' ] }
+    { path: 'contacts', queryParams: ['orderByValue'] }
   ]),
   connect(
     (state) => ({
