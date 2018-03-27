@@ -8,12 +8,7 @@ import { loadingBarMiddleware  } from 'react-redux-loading-bar';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 
 const fbConfig = {
-    apiKey: "AIzaSyCH0I-C3_ySJNoTDx0ZwKUf1Ury9dyDwoE",
-    authDomain: "adress-book-cac44.firebaseapp.com",
-    databaseURL: "https://adress-book-cac44.firebaseio.com",
-    projectId: "adress-book-cac44",
-    storageBucket: "adress-book-cac44.appspot.com",
-    messagingSenderId: "665964560829"
+  //......PLEASE ADD KEYS...
 
 }
 
